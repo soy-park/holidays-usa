@@ -5,7 +5,12 @@ import HolidayCard from '../HolidayCard/HolidayCard';
 const HolidaysContainer = props => {
   const holidayCards = props.holidays.map(holiday => {
     return (
-      <HolidayCard holiday={holiday.name} holidays={props.holidays} />
+        <HolidayCard 
+            id={holiday.localName.split(' ').join('-')}
+            key={holiday.localName.split(' ').join('-')}
+            holiday={holiday.name}
+            holidays={props.holidays} 
+        />
     )
   });
 

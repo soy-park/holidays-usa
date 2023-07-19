@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { getHolidays } from './apiCalls';
 import HolidaysContainer from './Components/HolidaysContainer';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   const [holidays, setHolidays] = useState([]);
@@ -18,7 +19,13 @@ const App = () => {
   return (
     <div className="App">
       <h1>Holidays in the United States</h1>
-      <HolidaysContainer holidays={holidays}/>
+      <Switch>
+        <Route exact path='/' render={() => <HolidaysContainer holidays={holidays} />} />
+        <Route path='/:id' render={({ match }) => {
+          holidayId = match.params.id
+          return (<HolidayDetails id={holidayId} />)
+        }} />
+      </Switch>
     </div>
   );
 }

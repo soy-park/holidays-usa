@@ -2,10 +2,10 @@ import React from 'react';
 import '../HolidayCard/HolidayCard.css';
 import { NavLink } from 'react-router-dom';
 
-const HolidayCard = props => {
+const HolidayCard = ({ id, holiday, holidays }) => {
     return (
         <NavLink to={`/${id}`} key={`${id}`}>
-            <h2>{props.holiday}</h2>
+            <h2>{holiday}</h2>
         </NavLink>
     )
 }
