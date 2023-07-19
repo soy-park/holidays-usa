@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import { getBirds } from './apiCalls';
+import { getHolidays } from './apiCalls';
+import HolidaysContainer from './Components/HolidaysContainer';
 
 const App = () => {
   const [holidays, setHolidays] = useState([]);
 
   useEffect(() => {
-    getBirds() 
-      .then(data => setHolidays(data))
+    getHolidays() 
+      .then(data => {
+        console.log(data)
+        setHolidays(data)
+      })
       .catch(error => console.log('Error fetching data:', error));
   }, []);
 
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+      <h1>Holidays in the United States</h1>
+      <HolidaysContainer holidays={holidays}/>
     </div>
   );
 }
