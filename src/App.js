@@ -4,7 +4,7 @@ import { getHolidays } from './apiCalls';
 import HolidaysContainer from './Components/HolidaysContainer/HolidaysContainer';
 import HolidayDetails from './Components/HolidayDetails/HolidayDetails';
 import { Route, Switch } from 'react-router-dom';
-
+import Form from './Components/Form/Form';
 
 const App = () => {
   const [holidays, setHolidays] = useState([]);
@@ -34,7 +34,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
           <>
-            <Form filtered={filterHolidays} clearFilter={clearFilteredHolidays}/>
+            <Form filter={filterHolidays} clearFilter={clearFilteredHolidays}/>
             <HolidaysContainer holidays={filteredHolidays.length > 0 ? filteredHolidays : holidays} />
           </>
         )} />
