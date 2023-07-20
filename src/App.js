@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   const [holidays, setHolidays] = useState([]);
+  const [filteredHolidays, setFilteredHolidays] = useState([]);
 
   useEffect(() => {
     getHolidays() 
@@ -17,6 +18,15 @@ const App = () => {
       })
       .catch(error => console.log('Error fetching data:', error));
   }, []);
+
+  const filterHolidays = (holiday) => {
+    const filteredHolidays = holidays.filter(holiday => holiday.name.toLowerCase().includes(holiday.toLowerCase()));
+    setFilteredHolidays(filteredHolidays);
+  };
+
+  const clearFilteredMovies = () => {
+    setFilteredHolidays([])
+  };
 
   return (
     <div className="App">
