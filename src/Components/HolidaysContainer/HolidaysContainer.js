@@ -1,5 +1,5 @@
 import React from 'react';
-import '../HolidaysContainer/HolidaysContainer.css';
+import './HolidaysContainer.css';
 import HolidayCard from '../HolidayCard/HolidayCard';
 
 const HolidaysContainer = props => {

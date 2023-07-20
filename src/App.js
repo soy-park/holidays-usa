@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { getHolidays } from './apiCalls';
-import HolidaysContainer from './Components/HolidaysContainer';
+import HolidaysContainer from './Components/HolidaysContainer/HolidaysContainer';
+import HolidayDetails from './Components/HolidayDetails/HolidayDetails';
 import { Route, Switch } from 'react-router-dom';
+
 
 const App = () => {
   const [holidays, setHolidays] = useState([]);
@@ -22,8 +24,8 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => <HolidaysContainer holidays={holidays} />} />
         <Route path='/:id' render={({ match }) => {
-          holidayId = match.params.id
-          return (<HolidayDetails id={holidayId} />)
+          const holidayId = match.params.id
+          return (<HolidayDetails id={holidayId} holidays={holidays} />)
         }} />
       </Switch>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../HolidayCard/HolidayCard.css';
+import './HolidayCard.css';
 import { NavLink } from 'react-router-dom';
 
 const HolidayCard = ({ id, holiday, holidays }) => {
