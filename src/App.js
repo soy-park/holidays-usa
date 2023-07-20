@@ -19,12 +19,12 @@ const App = () => {
       .catch(error => console.log('Error fetching data:', error));
   }, []);
 
-  const filterHolidays = (holiday) => {
-    const filteredHolidays = holidays.filter(holiday => holiday.name.toLowerCase().includes(holiday.toLowerCase()));
+  const filterHolidays = (holidaySearch) => {
+    const filteredHolidays = holidays.filter(holiday => holiday.name.toLowerCase().includes(holidaySearch.toLowerCase()));
     setFilteredHolidays(filteredHolidays);
   };
 
-  const clearFilteredMovies = () => {
+  const clearFilteredHolidays = () => {
     setFilteredHolidays([])
   };
 
@@ -32,7 +32,12 @@ const App = () => {
     <div className="App">
       <h1>Holidays in the United States</h1>
       <Switch>
-        <Route exact path='/' render={() => <HolidaysContainer holidays={holidays} />} />
+        <Route exact path='/' render={() => (
+          <>
+            <Form filtered={filterHolidays} clearFilter={clearFilteredHolidays}/>
+            <HolidaysContainer holidays={filteredHolidays.length > 0 ? filteredHolidays : holidays} />
+          </>
+        )} />
         <Route path='/:id' render={({ match }) => {
           const holidayId = match.params.id
           return (<HolidayDetails id={holidayId} holidays={holidays} />)
