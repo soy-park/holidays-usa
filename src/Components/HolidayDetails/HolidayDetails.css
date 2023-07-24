@@ -1,0 +1,16 @@
+.holiday-details {
+    width: 15em;
+    display: flex;
+    flex-direction: column;
+}
+
+.holiday-facts {
+    border: 1.5px solid black;
+    border-radius: 5%;
+    background-color: rgb(181, 204, 246);
+    margin-left: 2em;
+}
+
+.return-btn-container {
+    margin: 2em 0em 20em 2em;
+}

@@ -7,12 +7,18 @@ const HolidayDetails = ({ id, holidays }) => {
     
     return (
         <div className="holiday-details">
-            <h2>{specificHoliday.name}</h2>
-            <h3>{specificHoliday.date}</h3>
-            {specificHoliday.global === true ? <p>Global holiday</p> : <p>Not a global holiday</p>}
-            <NavLink to='/'>
-                <button>Return to Holidays</button>
-            </NavLink>
+            <div className="holiday-facts">
+                <h2>{specificHoliday.name}</h2>
+                <h3>{specificHoliday.date}</h3>
+                {specificHoliday.global === true ? <p>Global holiday</p> : <p>Not a global holiday</p>}
+            </div>
+            <div className="return-btn-container">
+                <NavLink exact to='/'>
+                    <button className="return-btn">Return to Holidays</button>
+                </NavLink>
+            </div>
+            
+           
         </div>
     )
 }

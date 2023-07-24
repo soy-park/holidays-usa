@@ -1,0 +1,23 @@
+form {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+input {
+    width: 13em;
+}
+
+.form-buttons {
+    margin-top: 0.5em;
+}
+
+.search-btn {
+    margin-right: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.clear-btn {
+    padding-left: 1.7em;
+    padding-right: 1.7em;
+}

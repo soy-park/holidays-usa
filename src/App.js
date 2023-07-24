@@ -12,10 +12,7 @@ const App = () => {
 
   useEffect(() => {
     getHolidays() 
-      .then(data => {
-        console.log(data)
-        setHolidays(data)
-      })
+      .then(data => setHolidays(data))
       .catch(error => console.log('Error fetching data:', error));
   }, []);
 

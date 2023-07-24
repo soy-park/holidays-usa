@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../Form/Form.css';
 
-const Form = ({ filter, clearFilter }) => {
+const Form = (props) => {
     const [formData, setFormData] = useState("")
 
     const handleChange = (event) => {
@@ -9,12 +10,12 @@ const Form = ({ filter, clearFilter }) => {
   
     const handleSearch = (event) => {
         event.preventDefault();
-        filter(formData);
+        props.filter(formData);
     }
 
     const clearFilter = () => {
         setFormData("")
-        clearFilter();
+        props.clearFilter();
     }
 
     return (
@@ -27,8 +28,10 @@ const Form = ({ filter, clearFilter }) => {
                 value={formData}
                 onChange={handleChange}
             />
-            <button onClick={handleSearch}>Search</button>
-            <button onClick={clearFilter}>Clear</button>
+            <div className="form-buttons">
+                <button className="search-btn" onClick={handleSearch}>Search</button>
+                <button className="clear-btn" onClick={clearFilter}>Clear</button>
+            </div>
         </form>
     )
 }

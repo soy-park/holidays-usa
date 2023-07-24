@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const HolidayCard = ({ id, holiday, holidays }) => {
     return (
         <NavLink to={`/${id}`} key={`${id}`}>
-            <h2>{holiday}</h2>
+            <h2 className="holiday-name">{holiday}</h2>
         </NavLink>
     )
 }
