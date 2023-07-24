@@ -2,3 +2,4 @@ I created a simple application that fetches an API and displays a list of U.S. h
 
 ### Preview of application
 ![Image](src/preview.png)
+
